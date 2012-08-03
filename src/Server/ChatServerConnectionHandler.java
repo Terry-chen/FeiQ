@@ -3,6 +3,7 @@ package Server;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import Server.UserHandler;
 
 /**Server端连接处理类
  * 
@@ -24,6 +25,9 @@ public class ChatServerConnectionHandler
 			while(true){
 				try{
 					Socket userSocket = serverSocket.accept();
+					System.out.println("Come from:"+userSocket.getInetAddress().getHostAddress());
+					UserHandler userHandler = new UserHandler(userSocket,this);
+					(new Thread(userHandler)).start();
 					
 				}catch(SocketTimeoutException ex){
 					

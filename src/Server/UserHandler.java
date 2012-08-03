@@ -30,7 +30,9 @@ public void run(){
 	try{
 		username = (String)inMessageStream.readObject();
 		if(username == "sgamerv" || username == "terry"){
-			System.out.println("Login successful!!");
+			outMessageStream.writeUTF("Login Successful!!");
+			outMessageStream.flush();
+			System.out.println(username+" login successful!!");
 		}
 	}catch(Exception ex){
 		ex.printStackTrace();

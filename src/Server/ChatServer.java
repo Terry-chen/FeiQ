@@ -9,6 +9,7 @@ import Server.ChatServerConnectionHandler;
 public class ChatServer {
 public static void main(String args[]){
 	ChatServerConnectionHandler connectionHandler = new ChatServerConnectionHandler();
+	connectionHandler.startListenFromConnection();
 }
 		
 }
